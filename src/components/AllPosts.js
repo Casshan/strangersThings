@@ -1,16 +1,35 @@
-import React from "react";
-import Create from "./Create";
+import React, { useState } from "react";
 import SearchPosts from "./SearchPosts";
+import { Link } from 'react-router-dom';
 
 const AllPosts = (props) => {
-    const posts = props.posts;
+    const [ searchPosts, setSearchPosts ] = useState('');
+
+    let posts = props.posts;
     const IsLoggedIn = props.IsLoggedIn;
 
+    const filterPosts = () => {
+        if (!searchPosts) {
+            return posts;
+        } else {
+            return posts.filter((post) => {
+                console.log(post.title);
+                return post.title.toLowerCase().includes(searchPosts.toLowerCase());
+            })
+        }
+    }
+
+    posts = filterPosts();
 
     return (
         <div>
-            <SearchPosts />
-            {IsLoggedIn ? <Create /> : false}
+            <div id='posts-header' className='container'>
+                <SearchPosts setSearchPosts={setSearchPosts}/>
+                {IsLoggedIn ? <div>
+            <Link to='/create'><button id='new-post-button' className="btn btn-outline-primary" type='button'>Create Post</button></Link>
+            </div> : null}
+            </div>
+
             <div className='container'>
                 <h1 id='post-title'>Posts</h1>
                 {

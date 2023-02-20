@@ -2,6 +2,10 @@
     margin-top: 20px;
 }
 
+#new-post-input {
+    margin-top: 5px;
+}
+
 #post-container {
     margin-bottom: 10px;
 }
@@ -40,4 +44,19 @@
 
 #login-failed {
     margin-bottom: 5px;
+}
+
+#new-post-button {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+#posts-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#search-bar {
+    width: 324px;
 }

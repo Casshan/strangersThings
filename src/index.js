@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import Create from './components/Create';
 
 
 const App = () => {
@@ -31,12 +32,14 @@ const App = () => {
     return (
         <div>
             <Header IsLoggedIn={IsLoggedIn} setIsLoggedIn={setIsLoggedIn} userToken={userToken} setUserToken={setUserToken}  />
+
             <Routes>
                 <Route path='/' element={<Home />}></Route>
                 <Route path='/posts' element={<AllPosts IsLoggedIn={IsLoggedIn} posts={posts}/>}></Route>
+                <Route path='/create' element={<Create userToken={userToken} posts={posts} setPosts={setPosts}/>}></Route>
                 <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} IsLoggedIn={IsLoggedIn} setUserToken={setUserToken}/>}></Route>
                 <Route path='/profile' element={<Profile />}></Route>
-                <Route path='/register' element={<Register />}></Route>
+                <Route path='/register' element={<Register setUserToken={setUserToken} setIsLoggedIn={setIsLoggedIn} IsLoggedIn={IsLoggedIn}/>}></Route>
             </Routes>
         </div>
     )

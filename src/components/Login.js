@@ -21,18 +21,15 @@ const Login = (props) => {
         }).then(response => response.json())
             .then(result => {
                 console.log(result);
-                (result.success ? props.setIsLoggedIn(true) : props.setIsLoggedIn(false));
-                (result.success ? setLoginErrorMessage('') : setLoginErrorMessage('The username and password do not match, please try again.'))
+                result.success ? props.setIsLoggedIn(true) : props.setIsLoggedIn(false);
+                result.success ? setLoginErrorMessage('') : setLoginErrorMessage('The username and password do not match, please try again.');
                 props.setUserToken(result.data.token);
             })
             .catch(console.error);
 
     }
 
-    useEffect(() => {
-        console.log('LoginUsername: ', LoginUsername)
-        console.log('LoginPassword: ', LoginPassword)
-    }, [LoginUsername, LoginPassword])
+    useEffect(() => {}, [LoginUsername, LoginPassword])
 
     const handleLoginUsername = (event) => {
         setLoginUsername(event.target.value);
