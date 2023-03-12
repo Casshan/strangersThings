@@ -51,6 +51,12 @@
     margin-left: 5px;
 }
 
+#delete-post-button {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    width: 100px;
+}
+
 #posts-header {
     display: flex;
     flex-direction: row;

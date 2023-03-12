@@ -35,11 +35,11 @@ const App = () => {
 
             <Routes>
                 <Route path='/' element={<Home />}></Route>
-                <Route path='/posts' element={<AllPosts IsLoggedIn={IsLoggedIn} posts={posts}/>}></Route>
+                <Route path='/posts' element={<AllPosts IsLoggedIn={IsLoggedIn} posts={posts} setPosts={setPosts} userToken={userToken}/>}></Route>
                 <Route path='/create' element={<Create userToken={userToken} posts={posts} setPosts={setPosts}/>}></Route>
-                <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} IsLoggedIn={IsLoggedIn} setUserToken={setUserToken}/>}></Route>
+                <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} IsLoggedIn={IsLoggedIn} setUserToken={setUserToken} />}></Route>
                 <Route path='/profile' element={<Profile />}></Route>
-                <Route path='/register' element={<Register setUserToken={setUserToken} setIsLoggedIn={setIsLoggedIn} IsLoggedIn={IsLoggedIn}/>}></Route>
+                <Route path='/register' element={<Register setUserToken={setUserToken} setIsLoggedIn={setIsLoggedIn} IsLoggedIn={IsLoggedIn} />}></Route>
             </Routes>
         </div>
     )
